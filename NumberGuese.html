@@ -23,10 +23,10 @@
     </body>
     <script>  
         
+    let answer;
 document.addEventListener("DOMContentLoaded", () =>{
     button = document.getElementById("submitButton");
             
-    let answer;
     count = 0;
     ul = document.querySelector(".userInputs");
     document.getElementById("submitButton").value = "Start Game";
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () =>{
             startGame();
             }
         else if(count == 10){
-            alert(`Game Over! \n Answer was ${answer} \nThanks for playing😊`);
+            alert(`Game Over! \nAnswer was ${answer} \nThanks for playing😊`);
             stopGame();
         }
         else{
