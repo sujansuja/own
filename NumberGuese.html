@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body{
+                background: #b8b5ea;
+            }
+        </style>
+
+    </head>
+    <body>
+        <h1>Guess the number</h1>
+        <p>We have selected a random number between 1 and 100.
+            See if you can guess it in 10 turns or fewer.
+            We'll tell you if your guess was too high or too low.</p>
+        <p id="userNumbers"></p>
+        <ul class="userInputs"></ul>
+        <p id="declare"></p>
+            <input type="number" min="1" max="100" id="inputField" autofocus>
+            <input type="submit" id="submitButton">
+    </body>
+    <script>  
+        
+document.addEventListener("DOMContentLoaded", () =>{
+    button = document.getElementById("submitButton");
+            
+    let answer;
+    count = 0;
+    ul = document.querySelector(".userInputs");
+    document.getElementById("submitButton").value = "Start Game";
+    document.getElementById("inputField").value = null;
+    document.getElementById("inputField").disabled = true;
+    document.getElementById("submitButton").addEventListener("click", ()=>{
+        if(document.getElementById("submitButton").value == "Start Game"){
+            startGame();
+            }
+        else if(count == 10){
+            alert("Turns over!");
+            stopGame();
+        }
+        else{
+            playGame();
+        }
+        });
+    });
+
+
+        function random(){
+            answer = Math.floor(Math.random() * 100);
+        }
+        function startGame(){
+            count = 0;
+            ul.innerHTML = "";
+            document.getElementById("inputField").value = null;
+            document.getElementById("submitButton").value = "Submit";
+            document.getElementById("inputField").disabled = false;
+            document.getElementById("inputField").focus();
+            random();
+        }
+
+        function stopGame(){
+            document.getElementById("submitButton").value = "Start Game";
+            count = 0;
+            ul.innerHTML = "";
+            document.getElementById("inputField").value = null;
+            document.getElementById("inputField").disabled = true;
+        }
+        
+
+        function playGame(){
+            count++;
+            ul = document.querySelector(".userInputs");
+            new_li = document.createElement("li");
+            userInput = document.getElementById("inputField").value;
+            new_li.innerHTML = userInput;
+            ul.appendChild(new_li);
+            document.getElementById("inputField").value = null;
+            if(userInput == answer){
+                stopGame();
+                alert("Hurray! You won the game!");
+            }
+            document.getElementById("inputField").focus();
+            console.log(count);
+        }
+    </script>
+</html>
