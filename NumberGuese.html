@@ -15,15 +15,16 @@
         <p>We have selected a random number between 1 and 100.
             See if you can guess it in 10 turns or fewer.
             We'll tell you if your guess was too high or too low.</p>
-        <p id="userNumbers"></p>
+        <p id="clue">Lets go!.......</p>
         <ul class="userInputs"></ul>
         <p id="declare"></p>
             <input type="number" min="1" max="100" id="inputField" autofocus>
             <input type="submit" id="submitButton">
     </body>
     <script>  
-        
+    
     let answer;
+        
 document.addEventListener("DOMContentLoaded", () =>{
     button = document.getElementById("submitButton");
             
@@ -35,6 +36,7 @@ document.addEventListener("DOMContentLoaded", () =>{
     document.getElementById("submitButton").addEventListener("click", ()=>{
         if(document.getElementById("submitButton").value == "Start Game"){
             startGame();
+            document.getElementById("clue").innerHTML = "Lets go!.......";
             }
         else if(count == 10){
             alert(`Game Over! \nAnswer was ${answer} \nThanks for playing😊`);
@@ -55,8 +57,10 @@ document.addEventListener("DOMContentLoaded", () =>{
             ul.innerHTML = "";
             document.getElementById("inputField").value = null;
             document.getElementById("submitButton").value = "Submit";
+            
             document.getElementById("inputField").disabled = false;
             document.getElementById("inputField").focus();
+            document.querySelector("body").style.background = "#A4FFAC";
             random();
         }
 
@@ -81,8 +85,16 @@ document.addEventListener("DOMContentLoaded", () =>{
                 stopGame();
                 alert("Hurray! You won the game!");
             }
+            else if(userInput > answer){
+                document.getElementById("clue").innerHTML = "Your answer was high";
+                document.querySelector("body").style.background = "#ffcd4a";
+            }
+            else if(userInput < answer){
+                document.getElementById("clue").innerHTML = "Your answer was low";
+                document.querySelector("body").style.background = "#ffcd4a";
+            }
             document.getElementById("inputField").focus();
-            console.log(count);
+            //console.log(count);
         }
     </script>
 </html>
