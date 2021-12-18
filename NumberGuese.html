@@ -98,7 +98,7 @@
 document.addEventListener("DOMContentLoaded", () =>{
     button = document.getElementById("submitButton");
             
-    count = 0;
+    count = 1;
     ul = document.querySelector(".userInputs");
     document.getElementById("submitButton").value = "Start Game";
     document.getElementById("inputField").value = null;
@@ -123,11 +123,10 @@ document.addEventListener("DOMContentLoaded", () =>{
             answer = Math.floor(Math.random() * 100);
         }
         function startGame(){
-            count = 0;
+            count = 1;
             ul.innerHTML = "";
             document.getElementById("inputField").value = null;
             document.getElementById("submitButton").value = "Submit";
-            
             document.getElementById("inputField").disabled = false;
             document.getElementById("inputField").focus();
             document.querySelector("body").style.background = "#A4FFAC";
@@ -136,10 +135,12 @@ document.addEventListener("DOMContentLoaded", () =>{
 
         function stopGame(){
             document.getElementById("submitButton").value = "Start Game";
-            count = 0;
+            count = 1;
             ul.innerHTML = "";
             document.getElementById("inputField").value = null;
             document.getElementById("inputField").disabled = true;
+            document.getElementById("clue").innerHTML = "Lets go!.......";
+
         }
         
 
