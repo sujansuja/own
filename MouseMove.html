@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Mouse Move</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body{
+                height: 100vh;
+                width: 100%;
+            }
+            h1{
+                position: absolute;
+                background: #2a3af1;
+                width: 30px;
+                height: 30px;
+                border-radius: 20px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <h1 ></h1>
+        <script>
+            onmousemove = function(e){
+                document.querySelector("h1").style.left = e.clientX - 13 + "px";
+                document.querySelector("h1").style.top = e.clientY - 25 + "px";
+                // console.log("X: "+e.clientX);
+                // console.log("Y:"+e.clientY);
+            }
+        </script>
+    </body>
+</html>
