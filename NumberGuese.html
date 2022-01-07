@@ -159,7 +159,7 @@ document.addEventListener("DOMContentLoaded", () =>{
                 document.getElementById("inputField").focus();
                 return;
             }
-            else if(userInput < 100 || userInput > 100){
+            else if(userInput < 0 || userInput < 100){
                 alert("Enter number between 1 and 100");
                 document.getElementById("inputField").value = "";
                 document.getElementById("inputField").focus();
