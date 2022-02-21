@@ -18,7 +18,7 @@
 
         </style>
     </head>
-    <body>
+    <body onmousemove="showSize(event)">
         <h1 ></h1>
         <script>
             onmousemove = function(e){
@@ -26,6 +26,10 @@
                 document.querySelector("h1").style.top = e.clientY - 25 + "px";
                 // console.log("X: "+e.clientX);
                 // console.log("Y:"+e.clientY);
+            }
+            
+            function showSize(event){
+                document.write("X: " + event.clientX + "\nY: " + event.clientY);
             }
         </script>
     </body>
