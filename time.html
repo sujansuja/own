@@ -47,7 +47,6 @@
     </form>
     <button onclick="print()">Print</button>
     <script>
-        time = new Date().toLocaleTimeString();
         date = new Date().toLocaleDateString();
 
         document.getElementById("date").innerHTML = date;
@@ -56,6 +55,7 @@
         }
         // alert(time);
         function create(){
+            time = new Date().toLocaleTimeString();
             const desc = document.getElementById("text").value;
             const new_element = document.createElement("tr");
             new_element.innerHTML = `<td>${time}</td><td>${desc}</td>`;
