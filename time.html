@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding-top: 50px;
+            height: 90vh;
+        }
+        div{
+        }
+        th{
+            padding: 0 20px;
+            border: 1px solid black;
+        }
+        td{
+            padding: 0 20px;
+            border: 1px solid black;
+        }
+    </style>
+    <title>Time tracker</title>
+</head>
+<body>
+    <button onclick="edit()" style="position:absolute; right: 20px; top: 20px;">Content Edit</button>
+    <div id="div">
+        <h2 id="date"></h2>
+        <table> 
+            <tr>
+                <th contenteditable="">Time</th>
+                <th>Description</th>
+            </tr>
+            <!-- <tr>
+                <td>09:00</td>
+                <td>Something</td>
+            </tr> -->
+        </table>
+    </div>
+    <form action="" method="get">
+        <input type="text" id="text" autofocus>
+        <button onclick="create()">Create</button>
+    </form>
+    <button onclick="print()">Print</button>
+    <script>
+        time = new Date().toLocaleTimeString();
+        date = new Date().toLocaleDateString();
+
+        document.getElementById("date").innerHTML = date;
+        document.querySelector("form").onsubmit = ()=>{
+            return false;
+        }
+        // alert(time);
+        function create(){
+            const desc = document.getElementById("text").value;
+            const new_element = document.createElement("tr");
+            new_element.innerHTML = `<td>${time}</td><td>${desc}</td>`;
+            document.querySelector("table").append(new_element);
+            document.getElementById("text").value = "";
+        }
+
+        function edit(){
+            document.querySelectorAll("td").contenteditable = true;
+        }
+    </script>
+</body>
+</html>
